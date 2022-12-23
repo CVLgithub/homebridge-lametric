@@ -12,12 +12,12 @@ export class lametric_api_client {
     public sendNotification(text : String, icon : String, sound: String, cycles: Number){
 
         var data = JSON.stringify({
-            priority: 'warning', model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
+            priority: 'critical', model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
         });
 
         if(sound != null && sound != '')
             data = JSON.stringify({
-                priority: 'warning', model: { cycles: cycles, frames: [ { icon: icon, text : text } ],
+                priority: 'critical', model: { cycles: cycles, frames: [ { icon: icon, text : text } ],
                     sound: { category: 'notifications', id: sound }
                 }
             });
