@@ -9,15 +9,15 @@ export class lametric_api_client {
         this.api_auth = 'Basic ' + Buffer.from('dev:' + apikey).toString('base64');
     }
 
-    public sendNotification(text : String, icon : String, sound: String, cycles: Number){
+    public sendNotification(text : String, priority : String,icon : String, sound: String, cycles: Number){
 
         var data = JSON.stringify({
-            priority: 'critical', model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
+            priority: priority, model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
         });
 
         if(sound != null && sound != '')
             data = JSON.stringify({
-                priority: 'critical', model: { cycles: cycles, frames: [ { icon: icon, text : text } ],
+                priority: priority, model: { cycles: cycles, frames: [ { icon: icon, text : text } ],
                     sound: { category: 'notifications', id: sound }
                 }
             });
